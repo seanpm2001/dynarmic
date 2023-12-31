@@ -121,6 +121,7 @@ message(STATUS "Target architecture: ${ARCHITECTURE}")
 # Forced use of individual bundled libraries for non-REQUIRED library is possible with e.g. cmake -DCMAKE_DISABLE_FIND_PACKAGE_fmt=ON ...
 
 if (DYNARMIC_USE_BUNDLED_EXTERNALS)
+    set(CMAKE_DISABLE_FIND_PACKAGE_biscuit ON)
     set(CMAKE_DISABLE_FIND_PACKAGE_Catch2 ON)
     set(CMAKE_DISABLE_FIND_PACKAGE_fmt ON)
     set(CMAKE_DISABLE_FIND_PACKAGE_mcl ON)
@@ -133,6 +134,10 @@ find_package(Boost 1.57 REQUIRED)
 find_package(fmt 9 QUIET)
 find_package(mcl 0.1.12 EXACT QUIET)
 find_package(tsl-robin-map QUIET)
+
+if ("riscv" IN_LIST ARCHITECTURE)
+    find_package(biscuit 0.9.1 QUIET)
+endif()
 
 if ("x86_64" IN_LIST ARCHITECTURE)
     find_package(xbyak 6 QUIET)
