@@ -2868,6 +2868,10 @@ void IREmitter::CallHostFunction(void (*fn)(u64, u64, u64), const U64& arg1, con
     Inst(Opcode::CallHostFunction, Imm64(mcl::bit_cast<u64>(fn)), arg1, arg2, arg3);
 }
 
+void IREmitter::Passthrough(u32 arm64_instruction) {
+    Inst(Opcode::Passthrough, Imm32(arm64_instruction));
+}
+
 void IREmitter::SetTerm(const Terminal& terminal) {
     block.SetTerminal(terminal);
 }

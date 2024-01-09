@@ -397,6 +397,7 @@ public:
     void CallHostFunction(void (*fn)(u64), const U64& arg1);
     void CallHostFunction(void (*fn)(u64, u64), const U64& arg1, const U64& arg2);
     void CallHostFunction(void (*fn)(u64, u64, u64), const U64& arg1, const U64& arg2, const U64& arg3);
+    void Passthrough(u32 arm64_instruction);
 
     void SetTerm(const Terminal& terminal);
 

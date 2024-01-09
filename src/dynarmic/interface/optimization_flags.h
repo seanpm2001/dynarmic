@@ -32,6 +32,8 @@ enum class OptimizationFlag : std::uint32_t {
     ConstProp = 0x00000010,
     /// This is enables miscellaneous safe IR optimizations.
     MiscIROpt = 0x00000020,
+    /// This optimization allows for direct execution of instructions on a compatible host.
+    Passthrough = 0x00000040,
 
     /// This is an UNSAFE optimization that reduces accuracy of fused multiply-add operations.
     /// This unfuses fused instructions to improve performance on host CPUs without FMA support.
